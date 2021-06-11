@@ -63,8 +63,13 @@ export class ProductAddComponent implements OnInit {
         this.router.navigate(['admin/products']);
       },
         errorResponse => {
-          for (let index = 0; index < errorResponse.error.Errors.length; index++) {
-            this.toastrService.warning(errorResponse.error.Errors[index].ErrorMessage)
+          if (errorResponse.error.Errors) {
+            for (let index = 0; index < errorResponse.error.Errors.length; index++) {
+              this.toastrService.warning(errorResponse.error.Errors[index].ErrorMessage)
+            }
+          }
+          else{
+            this.toastrService.warning(errorResponse.error.message)
           }
         })
     }
