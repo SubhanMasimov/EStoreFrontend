@@ -1,3 +1,4 @@
+import { BrandListComponent } from './components/brandComponents/brand-list/brand-list.component';
 import { AdminNavbarComponent } from './components/admin-navbar/admin-navbar.component';
 import { ProductListComponent } from './components/productComponents/product-list/product-list.component';
 import { NgModule } from '@angular/core';
@@ -7,7 +8,8 @@ const routes: Routes = [
   {
     path: 'admin', component: AdminNavbarComponent, children: [
       { path: '', component: ProductListComponent },
-      { path: 'products', component: ProductListComponent }
+      { path: 'products', component: ProductListComponent },
+      { path: 'brands', component: BrandListComponent }
     ]
   },
 

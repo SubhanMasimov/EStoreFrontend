@@ -1,0 +1,27 @@
+<div class="container">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Ad</th>
+                <th>Tarix</th>
+                <th>Aktivlik</th>
+                <th>Əməliyyatlar</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="table" *ngFor="let brand of brands">
+                <td>{{brand.id}}</td>
+                <td>{{brand.name}}</td>
+                <td>{{brand.createDate | date :'dd/MM/yyyy, HH:mm:ss'}}</td>
+                <td>{{brand.active}}</td>
+                <td>
+                    <a class="btn btn-warning btn-sm" href="">Güncəllə</a>
+                    <div class="divider"></div>
+                    <a class="btn btn-danger btn-sm" href="">Sil</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <a class="btn btn-success"><i class="fas fa-plus"></i> Yeni marka</a>
+</div>
