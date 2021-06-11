@@ -8,6 +8,7 @@ import { CategoryService } from './../../../services/category.service';
 import { BrandService } from './../../../services/brand.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms'
+import { GlobalErrorHandler } from 'src/app/core/errorHandler/globalErrorHandler';
 
 @Component({
   selector: 'app-product-add',
@@ -59,18 +60,11 @@ export class ProductAddComponent implements OnInit {
     if (this.productAddForm.valid) {
       let product = Object.assign({}, this.productAddForm.value)
       this.productService.add(product).subscribe(successResponse => {
-        this.toastrService.success(Messages.productAdded);
-        this.router.navigate(['admin/products']);
+        this.toastrService.success(Messages.productAdded)
+        this.router.navigate(['admin/products'])
       },
         errorResponse => {
-          if (errorResponse.error.Errors) {
-            for (let index = 0; index < errorResponse.error.Errors.length; index++) {
-              this.toastrService.warning(errorResponse.error.Errors[index].ErrorMessage)
-            }
-          }
-          else{
-            this.toastrService.warning(errorResponse.error.message)
-          }
+          new GlobalErrorHandler(this.toastrService).handle(errorResponse)
         })
     }
     else {
