@@ -1,0 +1,35 @@
+<div class="container">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Kateqoriya</th>
+        <th>Marka</th>
+        <th>Ad</th>
+        <th>Kod</th>
+        <th>Miqdar</th>
+        <th>Qiymət</th>
+        <th>Tarix</th>
+        <th>Aktivlik</th>
+        <th>Əməliyyatlar</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="table" *ngFor="let product of products">
+        <td>{{product.id}}</td>
+        <td>{{product.category.name}}</td>
+        <td>{{product.brand.name}}</td>
+        <td>{{product.name}}</td>
+        <td>{{product.code}}</td>
+        <td>{{product.stock}}</td>
+        <td>{{product.price}}</td>
+        <td>{{product.createDate | date :'dd/MM/yyyy, HH:mm:ss'}}</td>
+        <td>{{product.active}}</td>
+        <td>
+          <a class="btn btn-success btn-sm" href="">Güncəllə</a>
+          <a class="btn btn-danger btn-sm" href="">Sil</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
