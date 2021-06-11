@@ -18,8 +18,8 @@ export class CategoryListComponent implements OnInit {
   }
 
   getAll(): void {
-    this.categoryService.getAll().subscribe(success => {
-      this.categories = success.data
+    this.categoryService.getAll().subscribe(successResponse => {
+      this.categories = successResponse.data
     })
   }
 }

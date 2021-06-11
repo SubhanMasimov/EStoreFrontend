@@ -1,3 +1,4 @@
+import { ProductAddComponent } from './components/productComponents/product-add/product-add.component';
 import { BrandListComponent } from './components/brandComponents/brand-list/brand-list.component';
 import { AdminNavbarComponent } from './components/admin-navbar/admin-navbar.component';
 import { ProductListComponent } from './components/productComponents/product-list/product-list.component';
@@ -10,6 +11,7 @@ const routes: Routes = [
     path: 'admin', component: AdminNavbarComponent, children: [
       { path: '', component: ProductListComponent },
       { path: 'products', component: ProductListComponent },
+      { path: 'products/add', component: ProductAddComponent },
       { path: 'brands', component: BrandListComponent },
       { path: 'categories', component: CategoryListComponent }
     ]

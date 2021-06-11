@@ -4,6 +4,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { RouterModule } from "@angular/router";
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
@@ -13,6 +15,7 @@ import { ProductListComponent } from './components/productComponents/product-lis
 import { AdminNavbarComponent } from './components/admin-navbar/admin-navbar.component';
 import { BrandListComponent } from './components/brandComponents/brand-list/brand-list.component';
 import { CategoryListComponent } from './components/categoryComponents/category-list/category-list.component';
+import { ProductAddComponent } from './components/productComponents/product-add/product-add.component';
 
 @NgModule({
   declarations: [
@@ -21,12 +24,16 @@ import { CategoryListComponent } from './components/categoryComponents/category-
     ProductListComponent,
     AdminNavbarComponent,
     BrandListComponent,
-    CategoryListComponent
+    CategoryListComponent,
+    ProductAddComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    ReactiveFormsModule,
+    FormsModule,
+    RouterModule,
     HttpClientModule,
     ToastrModule.forRoot({
       positionClass: "toast-bottom-right"

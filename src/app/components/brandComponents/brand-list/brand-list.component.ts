@@ -18,8 +18,8 @@ export class BrandListComponent implements OnInit {
   }
 
   getAll(): void {
-    this.brandService.getAll().subscribe(success => {
-      this.brands = success.data
+    this.brandService.getAll().subscribe(successResponse => {
+      this.brands = successResponse.data
     })
   }
 }
