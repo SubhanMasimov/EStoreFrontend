@@ -1,14 +1,11 @@
-import { Router, RouterModule } from '@angular/router';
+import { CommandRepositoryService } from './../../../core/repositories/command-repository.service';
 import { ProductService } from './../../../services/product.service';
-import { Messages } from './../../../constants/messages';
 import { Category } from './../../../models/category';
 import { Brand } from './../../../models/brand';
-import { ToastrService } from 'ngx-toastr';
 import { CategoryService } from './../../../services/category.service';
 import { BrandService } from './../../../services/brand.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms'
-import { GlobalErrorHandler } from 'src/app/core/errorHandler/globalErrorHandler';
 
 @Component({
   selector: 'app-product-add',
@@ -25,8 +22,7 @@ export class ProductAddComponent implements OnInit {
     private productService: ProductService,
     private brandService: BrandService,
     private categoryService: CategoryService,
-    private toastrService: ToastrService,
-    private router: Router) { }
+    private commandRepositoryService: CommandRepositoryService) { }
 
   ngOnInit(): void {
     this.createAddForm()
@@ -57,19 +53,7 @@ export class ProductAddComponent implements OnInit {
   }
 
   add(): void {
-    if (this.productAddForm.valid) {
-      let product = Object.assign({}, this.productAddForm.value)
-      this.productService.add(product).subscribe(successResponse => {
-        this.toastrService.success(Messages.productAdded)
-        this.router.navigate(['admin/products'])
-      },
-        errorResponse => {
-          new GlobalErrorHandler(this.toastrService).handle(errorResponse)
-        })
-    }
-    else {
-      this.toastrService.warning(Messages.fillAreas)
-    }
+    this.commandRepositoryService.add(this.productAddForm, this.productService, 'admin/products')
   }
 
 }

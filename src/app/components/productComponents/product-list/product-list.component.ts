@@ -21,7 +21,6 @@ export class ProductListComponent implements OnInit {
   getAll(): void {
     this.productService.getAll().subscribe(success => {
       this.products = success.data
-      this.toastrService.success('Məhsullar listələndi')
     })
   }
 
