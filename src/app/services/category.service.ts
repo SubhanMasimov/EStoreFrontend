@@ -1,3 +1,4 @@
+import { ResponseModel } from './../models/responseModel';
 import { Category } from './../models/category';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
@@ -18,4 +19,10 @@ export class CategoryService {
     let path = this.apiUrl + "categories/getall"
     return this.httpClient.get<ListResponseModel<Category>>(path)
   }
+
+  add(category: Category) {
+    let path = this.apiUrl + "categories/add"
+    return this.httpClient.post<ResponseModel>(path, category)
+  }
+  
 }

@@ -18,7 +18,7 @@ export class CommandRepositoryService {
       let product = Object.assign({}, formGroup.value)
       service.add(product).subscribe(() => {
         this.toastrService.success(Messages.added)
-        this.router.navigate(['admin/products'])
+        this.router.navigate([navigateUrl])
       },
         (errorResponse: any) => {
           new GlobalErrorHandler(this.toastrService).handle(errorResponse)

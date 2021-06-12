@@ -1,3 +1,5 @@
+import { CategoryAddComponent } from './components/categoryComponents/category-add/category-add.component';
+import { BrandAddComponent } from './components/brandComponents/brand-add/brand-add.component';
 import { ProductAddComponent } from './components/productComponents/product-add/product-add.component';
 import { BrandListComponent } from './components/brandComponents/brand-list/brand-list.component';
 import { AdminNavbarComponent } from './components/admin-navbar/admin-navbar.component';
@@ -13,7 +15,9 @@ const routes: Routes = [
       { path: 'products', component: ProductListComponent },
       { path: 'products/add', component: ProductAddComponent },
       { path: 'brands', component: BrandListComponent },
-      { path: 'categories', component: CategoryListComponent }
+      { path: 'brands/add', component: BrandAddComponent },
+      { path: 'categories', component: CategoryListComponent },
+      { path: 'categories/add', component: CategoryAddComponent }
     ]
   },
 

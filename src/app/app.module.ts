@@ -16,6 +16,8 @@ import { AdminNavbarComponent } from './components/admin-navbar/admin-navbar.com
 import { BrandListComponent } from './components/brandComponents/brand-list/brand-list.component';
 import { CategoryListComponent } from './components/categoryComponents/category-list/category-list.component';
 import { ProductAddComponent } from './components/productComponents/product-add/product-add.component';
+import { BrandAddComponent } from './components/brandComponents/brand-add/brand-add.component';
+import { CategoryAddComponent } from './components/categoryComponents/category-add/category-add.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { ProductAddComponent } from './components/productComponents/product-add/
     AdminNavbarComponent,
     BrandListComponent,
     CategoryListComponent,
-    ProductAddComponent
+    ProductAddComponent,
+    BrandAddComponent,
+    CategoryAddComponent
   ],
   imports: [
     BrowserModule,
