@@ -1,28 +1,13 @@
-import { ResponseModel } from './../models/responseModel';
+import { CrudRepositoryService } from './../core/repositories/crudRepository.service';
 import { Category } from './../models/category';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { Connection } from '../constants/connection';
-import { ListResponseModel } from '../models/listResponseModel';
 
 @Injectable({
   providedIn: 'root'
 })
-export class CategoryService {
+export class CategoryService extends CrudRepositoryService<Category>{
 
-  private apiUrl = Connection.apiUrl;
+  constructor(protected httpClient: HttpClient) { super(httpClient, 'categories') }
 
-  constructor(private httpClient: HttpClient) { }
-
-  getAll(): Observable<ListResponseModel<Category>> {
-    let path = this.apiUrl + "categories/getall"
-    return this.httpClient.get<ListResponseModel<Category>>(path)
-  }
-
-  add(category: Category) {
-    let path = this.apiUrl + "categories/add"
-    return this.httpClient.post<ResponseModel>(path, category)
-  }
-  
 }

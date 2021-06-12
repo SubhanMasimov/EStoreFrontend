@@ -26,9 +26,8 @@ export class BrandAddComponent implements OnInit {
     )
   }
 
-
   add() {
-    this.commandRepositoryService.add(this.brandAddForm, this.brandService, 'admins/brands')
+    this.commandRepositoryService.add(this.brandAddForm, this.brandService, 'admin/brands')
   }
 
 }

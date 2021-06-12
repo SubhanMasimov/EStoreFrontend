@@ -1,28 +1,14 @@
-import { ResponseModel } from './../models/responseModel';
+import { CrudRepositoryService } from './../core/repositories/crudRepository.service';
 import { HttpClient } from '@angular/common/http';
-import { Connection } from './../constants/connection';
 import { Product } from './../models/product';
-import { ListResponseModel } from './../models/listResponseModel';
-import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import {  Injectable } from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ProductService {
+export class ProductService extends CrudRepositoryService<Product> {
 
-  private apiUrl = Connection.apiUrl;
-
-  constructor(private httpClient: HttpClient) { }
-
-  getAll(): Observable<ListResponseModel<Product>> {
-    let path = this.apiUrl + "products/getall"
-    return this.httpClient.get<ListResponseModel<Product>>(path)
-  }
-
-  add(product: Product): Observable<ResponseModel> {
-    let path = this.apiUrl + "products/add"
-    return this.httpClient.post<ResponseModel>(path, product);
-  }
-
+  constructor( protected httpClient: HttpClient) { super( httpClient, 'products') }
+  
 }
+
