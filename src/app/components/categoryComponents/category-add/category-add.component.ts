@@ -1,5 +1,5 @@
 import { CategoryService } from './../../../services/category.service';
-import { CommandRepositoryService } from './../../../core/repositories/command-repository.service';
+import { CommandRepositoryService } from '../../../core/repositories/commandRepository.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms'
 

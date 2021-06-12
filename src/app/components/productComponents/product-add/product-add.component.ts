@@ -1,4 +1,4 @@
-import { CommandRepositoryService } from './../../../core/repositories/command-repository.service';
+import { CommandRepositoryService } from '../../../core/repositories/commandRepository.service';
 import { ProductService } from './../../../services/product.service';
 import { Category } from './../../../models/category';
 import { Brand } from './../../../models/brand';
