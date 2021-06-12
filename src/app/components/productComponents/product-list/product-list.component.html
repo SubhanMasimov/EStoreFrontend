@@ -3,9 +3,9 @@
     <thead>
       <tr class="text-center">
         <th>Id</th>
+        <th>Ad</th>
         <th>Kateqoriya</th>
         <th>Marka</th>
-        <th>Ad</th>
         <th>Kod</th>
         <th>Miqdar</th>
         <th>Qiymət</th>
@@ -17,9 +17,9 @@
     <tbody>
       <tr class="table text-center" *ngFor="let product of products">
         <td>{{product.id}}</td>
+        <td>{{product.name}}</td>
         <td>{{product.category.name}}</td>
         <td>{{product.brand.name}}</td>
-        <td>{{product.name}}</td>
         <td>{{product.code}}</td>
         <td>{{product.stock}}</td>
         <td>{{product.price}}</td>
