@@ -15,9 +15,25 @@ export class CommandRepositoryService {
 
   add(formGroup: FormGroup, service: any, navigateUrl: string): void {
     if (formGroup.valid) {
-      let product = Object.assign({}, formGroup.value)
-      service.add(product).subscribe(() => {
+      let entityModel = Object.assign({}, formGroup.value)
+      service.add(entityModel).subscribe(() => {
         this.toastrService.success(Messages.added)
+        this.router.navigate([navigateUrl])
+      },
+        (errorResponse: any) => {
+          new GlobalErrorHandler(this.toastrService).handle(errorResponse)
+        })
+    }
+    else {
+      this.toastrService.warning(Messages.fillAreas)
+    }
+  }
+
+  update(formGroup: FormGroup, service: any, navigateUrl: string): void {
+    if (formGroup.valid) {
+      let entityModel = Object.assign({}, formGroup.value)
+      service.update(entityModel).subscribe(() => {
+        this.toastrService.success(Messages.updated)
         this.router.navigate([navigateUrl])
       },
         (errorResponse: any) => {

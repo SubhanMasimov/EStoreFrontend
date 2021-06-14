@@ -1,3 +1,4 @@
+import { Messages } from 'src/app/constants/messages';
 import { ToastrService } from 'ngx-toastr';
 
 export class GlobalErrorHandler {
@@ -10,8 +11,11 @@ export class GlobalErrorHandler {
                 this.toastrService.warning(errorResponse.error.Errors[index].ErrorMessage)
             }
         }
-        else {
+        else if (errorResponse.error.message) {
             this.toastrService.warning(errorResponse.error.message)
+        }
+        else {
+            this.toastrService.error(Messages.systemError)
         }
     }
 

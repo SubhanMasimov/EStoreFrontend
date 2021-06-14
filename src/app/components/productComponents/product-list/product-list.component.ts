@@ -24,4 +24,8 @@ export class ProductListComponent implements OnInit {
     })
   }
 
+  write(product: Product) {
+    console.log(product)
+  }
+
 }

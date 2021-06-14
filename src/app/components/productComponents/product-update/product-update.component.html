@@ -1,0 +1,79 @@
+<div class="content">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="title">Məhsulu güncəllə</h5>
+            </div>
+            <div class="card-body">
+                <form [formGroup]="productUpdateForm">
+                    <div class="mb-3">
+                        <label for="id">Id</label>
+                        <div class="form-group">
+                            <input type="number" id="name" formControlName="id" class="form-control"
+                                [readonly]="true" />
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="name">Məhsul adı</label>
+                        <div class="form-group">
+                            <input type="text" id="name" formControlName="name" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="categoryId">Kateqoriya</label>
+                        <div class="form-group">
+                            <select class="form-select" formControlName="categoryId">
+                                <option *ngFor="let category of categoryList" [ngValue]="category.id">{{category.name}}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="brandId">Marka</label>
+                        <div class="form-group">
+                            <select class="form-select" formControlName="brandId">
+                                <option *ngFor="let brand of brandList" [ngValue]="brand.id">{{brand.name}}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="code">Kod</label>
+                        <div class="form-group">
+                            <input type="text" id="code" formControlName="code" class="form-control">
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="stock">Miqdar</label>
+                        <div class="form-group">
+                            <input type="number" id="stock" formControlName="stock" class="form-control">
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="price">Qiymət</label>
+                        <div class="form-group">
+                            <input type="number" id="price" formControlName="price" class="form-control">
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="createDate">Tarix</label>
+                        <div class="form-group">
+                            <input type="text" id="name" formControlName="createDate" class="form-control"  [readonly]="true" />
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="createDate">Aktivlik</label>
+                        <div class="form-group">
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" formControlName="active">
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="card-footer">
+                <button class="btn btn-fill btn-success" (click)="update()">Güncəllə</button>
+            </div>
+        </div>
+    </div>
+</div>
