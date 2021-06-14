@@ -1,7 +1,7 @@
+import { CommandRepositoryService } from './../../../core/repositories/commandRepository.service';
 import { Product } from './../../../models/product';
 import { ProductService } from './../../../services/product.service';
 import { Component, OnInit } from '@angular/core';
-import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-product-list',
@@ -12,7 +12,8 @@ export class ProductListComponent implements OnInit {
 
   products: Product[] = []
 
-  constructor(private productService: ProductService, private toastrService: ToastrService) { }
+  constructor(private productService: ProductService,
+    private commandRepositoryService: CommandRepositoryService) { }
 
   ngOnInit(): void {
     this.getAll()
@@ -24,8 +25,9 @@ export class ProductListComponent implements OnInit {
     })
   }
 
-  write(product: Product) {
-    console.log(product)
+  delete(product: Product) {
+    this.commandRepositoryService.delete(product, this.productService)
+    this.products = this.products.filter(p=>p.id !== product.id)
   }
 
 }

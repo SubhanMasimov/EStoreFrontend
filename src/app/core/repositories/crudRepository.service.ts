@@ -37,4 +37,9 @@ export class CrudRepositoryService<T>{
     return this.httpClient.post<ResponseModel>(path, entity);
   }
 
+  delete(entity: T): Observable<ResponseModel> {
+    let path = this.apiUrl + "delete"
+    return this.httpClient.post<ResponseModel>(path, entity);
+  }
+
 }

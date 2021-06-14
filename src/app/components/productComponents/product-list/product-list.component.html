@@ -28,7 +28,7 @@
         <td>
           <a class="btn btn-warning btn-sm" routerLink='/admin/products/{{product.id}}/update'>Güncəllə</a>
           <div class="divider"></div>
-          <a class="btn btn-danger btn-sm">Sil</a>
+          <a class="btn btn-danger btn-sm" (click) = "delete(product)">Sil</a>
         </td>
       </tr>
     </tbody>

@@ -44,4 +44,14 @@ export class CommandRepositoryService {
       this.toastrService.warning(Messages.fillAreas)
     }
   }
+
+  delete(entity: any, service: any): void {
+    if (confirm(Messages.areYouSure)) {
+      service.delete(entity).subscribe(() => {
+        this.toastrService.success(Messages.deleted)
+      })
+    }
+
+  }
+
 }
