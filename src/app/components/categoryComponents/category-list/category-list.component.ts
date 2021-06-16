@@ -1,3 +1,4 @@
+import { CommandRepositoryService } from './../../../core/repositories/commandRepository.service';
 import { CategoryService } from './../../../services/category.service';
 import { Category } from './../../../models/category';
 import { Component, OnInit } from '@angular/core';
@@ -11,7 +12,8 @@ export class CategoryListComponent implements OnInit {
 
   categories: Category[] = []
 
-  constructor(private categoryService: CategoryService) { }
+  constructor(private categoryService: CategoryService,
+    private commandRepositoryService: CommandRepositoryService) { }
 
   ngOnInit(): void {
     this.getAll()
@@ -21,5 +23,10 @@ export class CategoryListComponent implements OnInit {
     this.categoryService.getAll().subscribe(successResponse => {
       this.categories = successResponse.data
     })
+  }
+
+  delete(category: Category) {
+    this.commandRepositoryService.delete(category, this.categoryService)
+    this.categories = this.categories.filter(c => c.id !== category.id)
   }
 }

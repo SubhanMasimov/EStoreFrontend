@@ -16,9 +16,9 @@
                 <td>{{category.createDate | date :'dd/MM/yyyy, HH:mm:ss'}}</td>
                 <td>{{category.active}}</td>
                 <td>
-                    <a class="btn btn-warning btn-sm" href="">Güncəllə</a>
+                    <a class="btn btn-warning btn-sm" routerLink="/admin/categories/{{category.id}}/update" >Güncəllə</a>
                     <div class="divider"></div>
-                    <a class="btn btn-danger btn-sm" href="">Sil</a>
+                    <a class="btn btn-danger btn-sm" (click)="delete(category)">Sil</a>
                 </td>
             </tr>
         </tbody>

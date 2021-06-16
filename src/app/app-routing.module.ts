@@ -1,3 +1,4 @@
+import { CategoryUpdateComponent } from './components/categoryComponents/category-update/category-update.component';
 import { BrandUpdateComponent } from './components/brandComponents/brand-update/brand-update.component';
 import { ProductUpdateComponent } from './components/productComponents/product-update/product-update.component';
 import { CategoryAddComponent } from './components/categoryComponents/category-add/category-add.component';
@@ -21,7 +22,8 @@ const routes: Routes = [
       { path: 'brands/:id/update', component: BrandUpdateComponent },
       { path: 'brands/add', component: BrandAddComponent },
       { path: 'categories', component: CategoryListComponent },
-      { path: 'categories/add', component: CategoryAddComponent }
+      { path: 'categories/add', component: CategoryAddComponent },
+      { path: 'categories/:id/update', component: CategoryUpdateComponent },
     ]
   },
 
