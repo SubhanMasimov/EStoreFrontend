@@ -1,6 +1,8 @@
+import { CommandRepositoryService } from './../../../core/repositories/commandRepository.service';
 import { BrandService } from './../../../services/brand.service';
 import { Component, OnInit } from '@angular/core';
 import { Brand } from 'src/app/models/brand';
+import { BuiltinVar } from '@angular/compiler';
 
 @Component({
   selector: 'app-brand-list',
@@ -11,7 +13,8 @@ export class BrandListComponent implements OnInit {
 
   brands: Brand[] = []
 
-  constructor(private brandService: BrandService) { }
+  constructor(private brandService: BrandService,
+    private commandRepositoryService: CommandRepositoryService) { }
 
   ngOnInit(): void {
     this.getAll()
@@ -21,5 +24,10 @@ export class BrandListComponent implements OnInit {
     this.brandService.getAll().subscribe(successResponse => {
       this.brands = successResponse.data
     })
+  }
+
+  delete(brand: Brand) {
+    this.commandRepositoryService.delete(brand, this.brandService)
+    this.brands = this.brands.filter(b=>b.id !== brand.id)
   }
 }

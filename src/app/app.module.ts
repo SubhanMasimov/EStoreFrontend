@@ -19,6 +19,7 @@ import { ProductAddComponent } from './components/productComponents/product-add/
 import { BrandAddComponent } from './components/brandComponents/brand-add/brand-add.component';
 import { CategoryAddComponent } from './components/categoryComponents/category-add/category-add.component';
 import { ProductUpdateComponent } from './components/productComponents/product-update/product-update.component';
+import { BrandUpdateComponent } from './components/brandComponents/brand-update/brand-update.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { ProductUpdateComponent } from './components/productComponents/product-u
     ProductAddComponent,
     BrandAddComponent,
     CategoryAddComponent,
-    ProductUpdateComponent
+    ProductUpdateComponent,
+    BrandUpdateComponent
   ],
   imports: [
     BrowserModule,
